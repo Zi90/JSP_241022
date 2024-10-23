@@ -35,4 +35,16 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return bdao.getDetail(bno);
 	}
+
+	@Override
+	public int update(BoardVO bvo) {
+		// TODO Auto-generated method stub
+		return bdao.update(bvo);
+	}
+
+	@Override
+	public int delete(int bno) {
+		// TODO Auto-generated method stub
+		return bdao.delete(bno);
+	}
 }

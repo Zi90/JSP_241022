@@ -46,4 +46,20 @@ public class BoardDAOImpl implements BoardDao {
 		log.info(">>>>> getDetail DAO in!!");
 		return sql.selectOne("BoardMapper.detail", bno);
 	}
+
+	@Override
+	public int update(BoardVO bvo) {
+		log.info(">>>>> update DAO in!!");
+		int isOk = sql.update("BoardMapper.up", bvo);
+		if(isOk > 0) sql.commit();
+		return isOk;
+	}
+
+	@Override
+	public int delete(int bno) {
+		// TODO Auto-generated method stub
+		int isOk = sql.delete("BoardMapper.del", bno);
+		if(isOk > 0) sql.commit();
+		return isOk;
+	}
 }
