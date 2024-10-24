@@ -15,5 +15,7 @@ public interface BoardService {
 	int update(BoardVO bvo);
 
 	int delete(int bno);
+
+	int readCount(int bno);
 	
 }

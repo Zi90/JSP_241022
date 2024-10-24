@@ -62,4 +62,11 @@ public class BoardDAOImpl implements BoardDao {
 		if(isOk > 0) sql.commit();
 		return isOk;
 	}
+
+	@Override
+	public int readCount(int bno) {
+		int isOk = sql.update("BoardMapper.read", bno);
+		if(isOk > 0) sql.commit();
+		return isOk;
+	}
 }

@@ -7,6 +7,8 @@ public class BoardVO {
 	private String content;
 	private String regdate;
 	private String moddate;
+	private int readCount;
+	private String imageFile;
 	
 	public BoardVO() {}
 
@@ -18,7 +20,7 @@ public class BoardVO {
 	}
 
 	// list : bno, title, writer, regdate
-	public BoardVO(int bno, String title, String writer, String regdate) {
+	public BoardVO(int bno, String title, String writer, String regdate, int readCount) {
 		this.bno = bno;
 		this.title = title;
 		this.writer = writer;
@@ -34,14 +36,15 @@ public class BoardVO {
 	}
 
 	// detail : 전부
-	public BoardVO(int bno, String title, String writer, String content, String regdate, String moddate) {
-		super();
+	public BoardVO(int bno, String title, String writer, String content, String regdate, String moddate, int readCount, String imageFile) {
 		this.bno = bno;
 		this.title = title;
 		this.writer = writer;
 		this.content = content;
 		this.regdate = regdate;
 		this.moddate = moddate;
+		this.readCount = readCount;
+		this.imageFile = imageFile;
 	}
 
 	public int getBno() {
@@ -91,11 +94,27 @@ public class BoardVO {
 	public void setModdate(String moddate) {
 		this.moddate = moddate;
 	}
+	
+	public int getReadCount() {
+		return readCount;
+	}
+
+	public void setReadCount(int readCount) {
+		this.readCount = readCount;
+	}
+
+	public String getImageFile() {
+		return imageFile;
+	}
+
+	public void setImageFile(String imageFile) {
+		this.imageFile = imageFile;
+	}
 
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regdate="
-				+ regdate + ", moddate=" + moddate + "]";
+				+ regdate + ", moddate=" + moddate + ", readCount=" + readCount + ", imageFile=" + imageFile + "]";
 	}
 
 }

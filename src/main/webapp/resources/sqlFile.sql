@@ -16,3 +16,10 @@ create table board(
   writer varchar(500) default "unknown",
   regdate datetime default now(),
   primary key(cno));
+  
+  -- 10.24
+  -- 조회수
+  alter table board add column readCount int default 0;
+  
+  -- 파일
+  alter table board add imageFile varchar(500);

@@ -7,6 +7,7 @@ public class CommentVO {
 	private String content;
 	private String writer;
 	private String regdate;
+//	private int readCount;
 	
 	public CommentVO() {}
 
@@ -26,8 +27,8 @@ public class CommentVO {
 	}	
 	
 	// 수정 : cno, content
-	public CommentVO(int bno, String content) {
-		this.bno = bno;
+	public CommentVO(int cno, String content) {
+		this.cno = cno;
 		this.content = content;
 	}
 
@@ -71,6 +72,15 @@ public class CommentVO {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+
+	
+//	public int getReadCount() {
+//		return readCount;
+//	}
+//
+//	public void setReadCount(int readCount) {
+//		this.readCount = readCount;
+//	}
 
 	@Override
 	public String toString() {

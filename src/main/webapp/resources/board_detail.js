@@ -117,6 +117,16 @@ async function updateCommentToServer(cmtData){
 	}
 }
 
+async function removeCommentToServer(cnoVal){
+	try{
+		const resp = await fetch("/cmt/remove?cno="+cnoVal);
+		const result = await resp.text();
+		return result;
+	}catch(error){
+		console.log(error);
+	}
+}
+
 document.addEventListener('click', (e)=>{
 	console.log(e.target);
 	console.log(e.target.dataset.cno);
@@ -135,6 +145,13 @@ document.addEventListener('click', (e)=>{
 		
 		updateCommentToServer(cmtData).then(result =>{
 			console.log(result);
+			if(result == '1'){
+				alert("댓글 수정 성공");
+			}else{				
+				alert("댓글 수정 실패");
+			}
+			// 수정 후 수정된 내용 출력
+			printList(bnoVal);
 		});
 		
 		// 내 타겟을 기준으로 가장 가까운 div를 찾기 closest('div')
@@ -147,6 +164,16 @@ document.addEventListener('click', (e)=>{
 	if(e.target.classList.contains('cmtDelBtn')){
 		// 삭제에 대한 처리
 		let cnoVal = e.target.dataset.cno;
+		// 삭제 비동기 함수 호출 result 받아서 alert 띄우기
+		removeCommentToServer(cnoVal).then(result => {
+			if(result == '1'){
+				alert("삭제성공!!");
+			}else{
+				alert("삭제실패!!");
+			}
+			printList(bnoVal);
+		});
+		// 삭제 후 출력 메서드 호출
 	}
 });
 

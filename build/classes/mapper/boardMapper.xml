@@ -8,8 +8,9 @@
 	<!-- parameterType = 매개변수의 객체타입(생략가능), resultType = 결과로 나가는 객체 -->
 	<!-- 실제 SQL 구문사용 -->
 	<insert id = "add" parameterType="domain.BoardVO">
-	insert into board(title, writer, content)
-	values(#{title}, #{writer}, #{content})
+	<!-- imageFile 추가 -->
+	insert into board(title, writer, content, imageFile)
+	values(#{title}, #{writer}, #{content}, #{imageFile})
 	</insert>
 	
 	<select id="list" resultType="domain.BoardVO">
@@ -21,11 +22,15 @@
 	</select>
 	
 	<update id="up" parameterType="domain.BoardVO">
-		update board set title = #{title}, content = #{content}, moddate = now() where bno = #{bno}
+		update board set title = #{title}, content = #{content}, moddate = now(), imageFile = #{imageFile} where bno = #{bno}
 	</update>
 	
 	<delete id="del" parameterType="int">
 		delete from board where bno = #{bno}
 	</delete>
+	
+	<update id="read">
+		update board set readCount = readCount + 1 where bno = #{bno}
+	</update>
 	
   </mapper>
