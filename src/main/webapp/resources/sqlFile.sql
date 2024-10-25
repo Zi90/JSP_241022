@@ -23,3 +23,13 @@ create table board(
   
   -- 파일
   alter table board add imageFile varchar(500);
+  
+  -- 10.25
+  create table member(
+id varchar(100) not null, 
+pwd varchar(100) not null,
+email vatchar(200) not null,
+phone varchar(50),
+regdate datetime default now(),
+lastlogin datetime default now(),
+primary key(id));
